@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="GesPro" nm="GesPro" ver="1.3.4">
+  <VerLbl/>
+  <VerNotes/>
+  <DefTblOpts/>
+  <DocFolder>D:\JALF\Documents</DocFolder>
+  <Sch Cm="" nm="public">
+    <Tbl UsSo="1" nm="dato_proyecto">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id" nm="pkdato_proyecto"/>
+      <Cl au="1" df="nextval('dato_proyecto_id_seq'::regclass)" nm="id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="proyecto_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_campo_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="valor" nu="0">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="deleted_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="1" nm="fk_dato_proyecto_proyecto" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="proyecto" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="dato_proyecto" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="proyecto_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="1" nm="fk_dato_proyecto_tipo_campo" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="tipo_campo" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="dato_proyecto" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="tipo_campo_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="estado">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id" nm="pkestado"/>
+      <Cl au="1" df="nextval('estado_id_seq'::regclass)" nm="id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nombre" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="plantilla">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id" nm="pkplantilla"/>
+      <Cl au="1" df="nextval('plantilla_id_seq'::regclass)" nm="id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_proyecto_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_campo_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="posicion" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="version" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="1" nm="fk_plantilla_tipo_campo" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="tipo_campo" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="plantilla" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="tipo_campo_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="1" nm="fk_plantilla_tipo_proyecto" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="tipo_proyecto" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="plantilla" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="tipo_proyecto_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="proyecto">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id" nm="pkproyecto"/>
+      <Cl au="1" df="nextval('proyecto_id_seq'::regclass)" nm="id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_proyecto_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="usuario_id_responsable" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="estado_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="usuario_id_aprobo" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="version_plantilla" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="deleted_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="1" nm="fk_proyecto_estado" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="estado" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="proyecto" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="estado_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="1" nm="fk_proyecto_tipo_proyecto" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="tipo_proyecto" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="proyecto" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="tipo_proyecto_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="1" nm="fk_proyecto_usuario_aprobo" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="usuario" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="proyecto" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="usuario_id_aprobo" prCl="id"/>
+      </Fk>
+      <Fk deAc="1" nm="fk_proyecto_usuario_responsable" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="usuario" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="proyecto" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="usuario_id_responsable" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="rol">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id" nm="pkrol"/>
+      <Cl au="1" df="nextval('rol_id_seq'::regclass)" nm="id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nombre" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="tipo_campo">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id" nm="pktipo_campo"/>
+      <Cl au="1" df="nextval('tipo_campo_id_seq'::regclass)" nm="id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nombre" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="tipo_proyecto">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id" nm="pktipo_proyecto"/>
+      <Cl au="1" df="nextval('tipo_proyecto_id_seq'::regclass)" nm="id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nombre" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="deleted_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="usuario">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id" nm="pkusuario"/>
+      <Cl au="1" df="nextval('usuario_id_seq'::regclass)" nm="id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="rol_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="usuario" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="contrasena" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="32" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="deleted_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nombre" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_documento" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="10" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="numero_documento" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
+        <Cm>			</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="perfil" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="1" nm="fk_usuario_rol" prLkCl="id" upAc="1">
+        <PrTb mn="0" nm="rol" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="usuario" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="rol_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Seq incr="1" nm="dato_proyecto_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="estado_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="plantilla_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="proyecto_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="rol_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="tipo_campo_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="tipo_proyecto_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="usuario_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <CustomTypes/>
+  </Sch>
+  <Dgm nm="diagramA">
+    <RnCf ClkAct="true" FtSz="11" lkStgy="OffsetDirect" zm="1.0">
+      <VbCfg>
+        <Fg ky="Auto Number" vl="0"/>
+        <Fg ky="Check" vl="0"/>
+        <Fg ky="Comment" vl="0"/>
+        <Fg ky="Data Type" vl="1"/>
+        <Fg ky="Default" vl="0"/>
+        <Fg ky="ENUM Values" vl="0"/>
+        <Fg ky="Length" vl="1"/>
+        <Fg ky="Name" vl="1"/>
+        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Schema Name" vl="0"/>
+        <Fg ky="Signed" vl="0"/>
+      </VbCfg>
+    </RnCf>
+    <DiaProps>
+      <Show AllCols="1" FkCols="1" FkNms="0" PkCols="1"/>
+      <ErNotation>BarkerErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
+      <svg path=""/>
+    </DiaProps>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="usuario" x="362" y="29"/>
+    <TbGl bkCl="ffffffcc" sch="public" tbl="rol" x="84" y="41"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="tipo_proyecto" x="341" y="373"/>
+    <TbGl bkCl="ffffffcc" sch="public" tbl="tipo_campo" x="62" y="511"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="plantilla" x="62" y="347"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="proyecto" x="632" y="225"/>
+    <TbGl bkCl="ffffffcc" sch="public" tbl="estado" x="78" y="207"/>
+    <TbGl bkCl="ff0066ff" sch="public" tbl="dato_proyecto" x="548" y="482"/>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.dato_proyecto.fk_dato_proyecto_proyecto" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.dato_proyecto.fk_dato_proyecto_tipo_campo" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.plantilla.fk_plantilla_tipo_campo" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.plantilla.fk_plantilla_tipo_proyecto" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.proyecto.fk_proyecto_estado" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.proyecto.fk_proyecto_tipo_proyecto" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.proyecto.fk_proyecto_usuario_aprobo" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.proyecto.fk_proyecto_usuario_responsable" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="public.usuario.fk_usuario_rol" parentEdge="EAST" positioner="TwoLineUserLinkPositioner">
+      <positionableLines/>
+    </FkGl>
+    <Notes/>
+    <Zones/>
+  </Dgm>
+  <RnmMgr NxRnmId="3">
+    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="GesPro" SupCls="" SupNme="">
+      <Rnm id="1" nNm="public" oNm="schemaA"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="proyecto" SupCls="Schema" SupNme="public">
+      <Rnm id="2" nNm="usuario_id_responsable" oNm="usuario_id"/>
+    </RnmCh>
+  </RnmMgr>
+  <DbDocOptionMgr>
+    <BasicOptionMgr>
+      <Name>db.doc.option.mgr</Name>
+      <BoolOpt lbl="Diagrams" nm="doc.diagrams" on="1" spl="0"/>
+      <BoolOpt lbl="Foreign Keys" nm="doc.fks" on="1" spl="0"/>
+      <BoolOpt lbl="Indexes" nm="doc.indexes" on="1" spl="0"/>
+      <BoolOpt lbl="Overwrite CSS File" nm="doc.overwrite.css" on="1" spl="0"/>
+      <BoolOpt lbl="Procedures" nm="doc.procs" on="1" spl="0"/>
+      <BoolOpt lbl="Schemas" nm="doc.schemas" on="1" spl="0"/>
+      <BoolOpt lbl="Sequences" nm="doc.sequences" on="1" spl="0"/>
+      <BoolOpt lbl="Tables" nm="doc.tables" on="1" spl="0"/>
+      <BoolOpt lbl="Triggers" nm="doc.triggers" on="1" spl="0"/>
+      <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
+    </BasicOptionMgr>
+  </DbDocOptionMgr>
+  <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="0"/>
+  </OpenEditors>
+  <TreePaths>
+    <TreePath/>
+    <TreePath>/Schemas (1)</TreePath>
+    <TreePath>/Schemas (1)/public</TreePath>
+  </TreePaths>
+  <SqlTexts/>
+</Db>
